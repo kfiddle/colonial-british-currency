@@ -29,15 +29,15 @@ function convertToPence() {
     let shillings = 0;
     let pence = 0;
 
-    if (poundsIn.value !== undefined) {
+    if (poundsIn.value !== "") {
         pounds = parseInt(poundsIn.value);
     }
 
-    if (shillingsIn.value !== undefined){
+    if (shillingsIn.value !== ""){
         shillings = parseInt(shillingsIn.value);
     }
 
-    if (penceIn.value !== undefined){
+    if (penceIn.value !== ""){
         pence = parseInt(penceIn.value);
     }
 
@@ -52,33 +52,17 @@ function convertToPence() {
     let displayPence = document.createElement('li');
 
     totalPence.innerHTML = "total in pence : " + totalInPence;
-    displayPounds.innerText = "pounds : " + pounds;
-    displayShillings.innerText = "shillings : " + shillings;
-    displayPence.innerText = "pence : " + pence;
+    displayPounds.innerText = "pounds : " + poundsOut;
+    displayShillings.innerText = "shillings : " + shillingsOut;
+    displayPence.innerText = "pence : " + penceOut;
 
     totalsHeading.appendChild(totalPence);
     totalsHeading.appendChild(displayPounds);
     totalsHeading.appendChild(displayShillings);
     totalsHeading.appendChild(displayPence);
 
-
 }
 
-// function convert() {
-//     let pounds = poundsIn.value;
-//     let shillings = shillingsIn.value;
-//     let pence = parseInt(penceIn.value);
-//
-//     let poundsInPence = pounds * 240;
-//     let shillingsInPence = shillings * 12;
-//
-//     let totalInPence = shillingsInPence + poundsInPence + pence;
-//     let officialPounds = ~~(totalInPence / 240);
-//
-//     let displayPounds = document.createElement('li');
-//     displayPounds.innerHTML = "total pounds: " + pounds;
-//     totalsHeading.appendChild(displayPounds);
-// }
 
 // int totalPence(){
 //     return (pound * 240) + (shilling * 12) + pence;
