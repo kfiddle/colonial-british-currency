@@ -67,7 +67,7 @@ function convertToPence() {
 
     let totalInPence = (pounds * 240) + (shillings * 12) + pence;
     let poundsOut = ~~(totalInPence/240);
-    let shillingsOut = ~~((totalInPence % 240) / 12);
+    let shillingsOut = ~~((totalInPence % 240) / 20);
     let penceOut = totalInPence - (poundsOut * 240) - (shillingsOut * 12);
 
     let totalPence = document.createElement('li');
@@ -104,7 +104,7 @@ function subtract() {
 
 function convertBackAndDisplay(totalInPence) {
     let poundsOut = ~~(totalInPence/240);
-    let shillingsOut = ~~((totalInPence % 240) / 12);
+    let shillingsOut = ~~((totalInPence % 240) / 20);
     let penceOut = totalInPence - (poundsOut * 240) - (shillingsOut * 12);
 
     let totalPence = document.createElement('li');
