@@ -1,0 +1,41 @@
+* {
+    font-weight: bold;
+}
+
+
+
+#form {
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+#form div {
+    padding-right: 50px;
+}
+
+#operators {
+    display: grid;
+    grid-template-rows: auto;
+}
+
+#operators i{
+    padding-left: 50px;
+    font-size: 2rem;
+
+}
+
+#operators i:hover{
+    color: greenyellow;
+
+}
+
+#multipleTransactTotal {
+    position: absolute;
+    left: 25%;
+    top: 60%;
+
+
+}
+
+
+
