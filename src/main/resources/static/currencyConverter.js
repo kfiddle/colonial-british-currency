@@ -40,55 +40,15 @@ totalsHeading.style.left = "500px;"
 totalsHeading.style.top = "500px";
 
 
-submitButton.addEventListener('click', convertToPence);
+// submitButton.addEventListener('click', convertToPence);
 plus.addEventListener('click', add);
 minus.addEventListener('click', subtract);
 // times.addEventListener('click', multiply);
 // divide.addEventListener('click', division);
 
 
-function convertToPence() {
-    let testNumber = 1;
-    let pounds = 0;
-    let shillings = 0;
-    let pence = 0;
-
-    if ((pounds1).value !== "") {
-        pounds = parseInt((pounds1).value);
-    }
-
-    if ((shillings1).value !== ""){
-        shillings = parseInt((shillings1).value);
-    }
-
-    if ((pence1).value !== ""){
-        pence = parseInt((pence1).value);
-    }
-
-    let totalInPence = (pounds * 240) + (shillings * 12) + pence;
-    let poundsOut = ~~(totalInPence/240);
-    let shillingsOut = ~~((totalInPence % 240) / 20);
-    let penceOut = totalInPence - (poundsOut * 240) - (shillingsOut * 12);
-
-    let totalPence = document.createElement('li');
-    let displayPounds = document.createElement('li');
-    let displayShillings = document.createElement('li');
-    let displayPence = document.createElement('li');
-
-    totalPence.innerHTML = "total in pence : " + totalInPence;
-    displayPounds.innerText = "pounds : " + poundsOut;
-    displayShillings.innerText = "shillings : " + shillingsOut;
-    displayPence.innerText = "pence : " + penceOut;
-
-    totalsHeading.appendChild(totalPence);
-    totalsHeading.appendChild(displayPounds);
-    totalsHeading.appendChild(displayShillings);
-    totalsHeading.appendChild(displayPence);
-
-}
-
 function add() {
-    // heading.innerText = formRender(form2);
+    heading.innerText = formRender(form1);
     let total = formRender(form1) + formRender(form2);
     convertBackAndDisplay(total);
 }
@@ -96,16 +56,15 @@ function add() {
 function subtract() {
     let total = formRender(form1) - formRender(form2);
     convertBackAndDisplay(total);
-
-
 }
 
 
 
-function convertBackAndDisplay(totalInPence) {
-    let poundsOut = ~~(totalInPence/240);
-    let shillingsOut = ~~((totalInPence % 240) / 20);
-    let penceOut = totalInPence - (poundsOut * 240) - (shillingsOut * 12);
+function convertBackAndDisplay(totalInPence) {   //6438
+    let poundsOut = ~~(totalInPence/240);   //26
+    let remainingPence = totalInPence % 240;   //198
+    let shillingsOut = ~~(remainingPence / 12);   //10
+    let penceOut = remainingPence % 12; //14
 
     let totalPence = document.createElement('li');
     let displayPounds = document.createElement('li');
@@ -113,6 +72,7 @@ function convertBackAndDisplay(totalInPence) {
     let displayPence = document.createElement('li');
 
     totalPence.innerHTML = "total in pence : " + totalInPence;
+
     displayPounds.innerText = "pounds : " + poundsOut;
     displayShillings.innerText = "shillings : " + shillingsOut;
     displayPence.innerText = "pence : " + penceOut;
