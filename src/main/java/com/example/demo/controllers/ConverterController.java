@@ -12,4 +12,10 @@ public class ConverterController {
     }
 
 
+    @RequestMapping("/currency-converter2")
+    public String displayAnotherCurrencyConverterPage(){
+        return "currencyConverter2";
+    }
+
+
 }
