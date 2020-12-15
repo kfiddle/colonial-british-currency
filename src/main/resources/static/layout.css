@@ -5,6 +5,9 @@
 #body{
     display: grid;
     grid-template-columns: 1fr 2fr;
+    background-image: url("/donovan-reeves-IZ-8E27kGCI-unsplash.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 h1 {
@@ -50,6 +53,7 @@ button {
 }
 
 #operators2 {
+    color:blue;
     display: grid;
     grid-template-rows: 45px;
 }
@@ -63,7 +67,18 @@ button {
 
 #operators2 i:hover{
     color: greenyellow;
+    font-size: 3.7rem;
+}
 
+#answer {
+    font-size: 2rem;
+    margin-left: 50%;
+    text-shadow: 1px 1px darkblue;
+}
+
+#answer li {
+    font-size: 2rem;
+    text-shadow: 1px 1px darkBlue;
 }
 
 #multipleTransactTotal {
