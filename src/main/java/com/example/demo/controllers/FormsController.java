@@ -4,6 +4,7 @@ import com.example.demo.models.Form;
 import com.example.demo.repositories.FormRepository;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -16,8 +17,11 @@ public class FormsController {
 
     @PostMapping("/add-form")
     public void addAForm(@RequestBody Form form) {
-        formRepo.save(form);
-//        return "redirect:/test-form";
+        Form formToAdd = form.officialAmount();
+        formRepo.save(formToAdd);
     }
 
+
 }
+
+

@@ -9,7 +9,11 @@ const poundsList = [];
 const shillingsList = [];
 const penceList = [];
 
-function makeForm() {
+
+makeNewForm();
+
+
+function submitForms() {
     for (let i = 0; i < poundsList.length; i++) {
         let formData = {
 
@@ -30,7 +34,7 @@ function makeForm() {
     }
 }
 
-formButton.addEventListener('click', function () {
+function makeNewForm() {
 
     let formDiv = document.createElement('div');
     let poundsInput = document.createElement('input');
@@ -57,5 +61,5 @@ formButton.addEventListener('click', function () {
     formDiv.appendChild(shillingsInput);
     formDiv.appendChild(penceInput);
     formFields.appendChild(formDiv);
+}
 
-})

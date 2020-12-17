@@ -9,37 +9,13 @@
 <body>
 
 
-<button id="formButton"><h1>Add A Form Here</h1></button>
-
-<form action="delete-forms" method="POST">
-    <button type="submit">Delete All Forms</button>
-</form>
-
-<div id="testForm">
-    <input id = "pounds" type="text" placeholder="TestPounds">
-    <input id = "shillings" type="text" placeholder="TestShillings">
-    <input id = "pence" type="text" placeholder="TestPence">
-
-    <button id="testButton" onclick="makeForm()">our new button</button>
-</div>
-
+<button id="formButton" onclick="makeNewForm()"><h1>Add A Form Here</h1></button>
 
 
 <div id="formFields">
-<form action="add-all-forms" method="POST">
-    <input type="text" placeholder="pounds" name="pounds0">
-    <input type="text" placeholder="shillings" name="shillings0">
-    <input type="text" placeholder="pence" name="pence0">
 
-    <button type="submit">submit</button>
-</form>
+    <button id="testButton" onclick="submitForms()">Submit These Forms</button>
 </div>
-
-    <ul th:each="form : ${forms}">
-        <li th:text="${form.pounds}"></li>
-        <li th:text="${form.shillings}"></li>
-        <li th:text="${form.pence}"></li>
-    </ul>
 
 
 
