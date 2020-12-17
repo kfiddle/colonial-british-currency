@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <title>testing form</title>
+</head>
+<body>
+
+
+<button id="formButton"><h1>Add A Form Here</h1></button>
+
+<form action="delete-forms" method="POST">
+    <button type="submit">Delete All Forms</button>
+</form>
+
+<div id="testForm">
+    <input id = "pounds" type="text" placeholder="TestPounds">
+    <input id = "shillings" type="text" placeholder="TestShillings">
+    <input id = "pence" type="text" placeholder="TestPence">
+
+    <button id="testButton" onclick="makeForm()">our new button</button>
+</div>
+
+
+
+<div id="formFields">
+<form action="add-all-forms" method="POST">
+    <input type="text" placeholder="pounds" name="pounds0">
+    <input type="text" placeholder="shillings" name="shillings0">
+    <input type="text" placeholder="pence" name="pence0">
+
+    <button type="submit">submit</button>
+</form>
+</div>
+
+    <ul th:each="form : ${forms}">
+        <li th:text="${form.pounds}"></li>
+        <li th:text="${form.shillings}"></li>
+        <li th:text="${form.pence}"></li>
+    </ul>
+
+
+
+
+<script src="/testForm.js"></script>
+</body>
+</html>

@@ -67,13 +67,13 @@ function addTheFields() {
 
     for (let i = 0; i < poundFields.length; i++) {
 
-        if (poundFields[i].value !== "") {
+        if (typeof poundFields[i].value !== "undefined") {
             totalPounds += parseInt(poundFields[i].value);
         }
-        if (shillingsFields[i].value !== "") {
+        if (typeof shillingsFields[i].value !== "undefined") {
             totalShillings += parseInt(shillingsFields[i].value);
         }
-        if (penceFields[i].value !== "") {
+        if (typeof penceFields[i].value !== "undefined") {
             totalPence += parseInt(penceFields[i].value);
         }
     }
@@ -85,32 +85,40 @@ function subtractTheFields() {
     let minusShillings = parseInt(shillingsFields[0].value);
     let minusPence = parseInt(penceFields[0].value);
 
-    if (poundFields[0] === "") {
+    if (typeof poundFields[0].value === "undefined") {
         minusPounds = 0;
     }
-    if (shillingsFields[0] === "") {
+    if (typeof shillingsFields[0].value === "undefined") {
         minusShillings = 0;
     }
-    if (penceFields[0] === "") {
+    if (typeof penceFields[0].value === "undefined") {
         minusPence = 0;
     }
 
     for (let i = 1; i < poundFields.length; i++) {
-        if (poundFields[i].value === "") {
+        if (typeof poundFields[i].value === "undefined") {
             poundFields[i] = 0;
+        } else {
+            poundFields[i] = poundFields[i].value;
         }
-        minusPounds = minusPounds - parseInt(poundFields[i].value);
+        minusPounds -= poundFields[i];
 
-        if (shillingsFields[0] === "") {
+        if (typeof shillingsFields[0].value === "undefined") {
             shillingsFields[i] = 0;
+        } else {
+            shillingsFields[i] = shillingsFields[i].value;
         }
-        minusShillings -= parseInt(shillingsFields[i].value);
+        minusShillings -= shillingsFields[i];
 
-        if (penceFields[0] === "") {
+        if (typeof penceFields[0].value === "undefined") {
             penceFields[i] = 0;
+        } else {
+            penceFields[i] = penceFields[i].value;
         }
-        minusPence -= parseInt(penceFields[i].value);
-
+        minusPence -= penceFields[i];
+        console.log(minusPounds);
+        console.log(minusShillings);
+        console.log(minusPence);
         convertBackAndDisplay((minusPounds * 240) + (minusShillings * 12) + (minusPence));
 
     }
