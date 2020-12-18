@@ -38,26 +38,7 @@ public class ConverterController {
         return "testForm";
     }
 
-//    @PostMapping("/add-form")
-//    public String addAForm(@RequestParam String pounds, String shillings, String pence) {
-//        int officialPounds = 0;
-//        int officialShillings = 0;
-//        int officialPence = 0;
-//
-//        if (!pounds.isEmpty()) {
-//            officialPounds = Integer.parseInt(pounds);
-//        }
-//        if (!shillings.isEmpty()) {
-//            officialShillings = Integer.parseInt(shillings);
-//        }
-//        if (!pence.isEmpty()) {
-//            officialPence = Integer.parseInt(pence);
-//        }
-//
-//        Form formToAdd = new Form(officialPounds, officialShillings, officialPence);
-//        formRepo.save(formToAdd);
-//        return "redirect:/test-form";
-//    }
+
 
     @PostMapping("/delete-forms")
     public String deleteAllForms() {
@@ -65,11 +46,43 @@ public class ConverterController {
         return "redirect:/test-form";
     }
 
+        @PostMapping("/add-form")
+    public String addAForm(@RequestBody Form...forms) {
+        for (Form form : forms) {
+            Form formToAdd = form.officialAmount();
+            formRepo.save(formToAdd);
+        }
+        return "redirect:/all-forms";
+
+    }
+
     @RequestMapping("/all-forms")
     public String displayAllFormsInRepo(Model model) {
         model.addAttribute("forms", formRepo.findAll());
         Collection<Form> foundForms = (Collection<Form>) formRepo.findAll();
         model.addAttribute("size", foundForms.size());
+
+        Collection<Form> formsToAddTogether = new ArrayList<>();
+        for (Form form : formRepo.findAll()){
+            Form convertedForm = form.officialAmount();
+            formsToAddTogether.add(convertedForm);
+        }
+
+        int totalPounds = 0;
+        int totalShillings = 0;
+        int totalPence = 0;
+
+        for (Form form : formsToAddTogether) {
+            totalPounds += form.getPounds();
+            totalShillings += form.getShillings();
+            totalPence += form.getPence();
+        }
+
+        Form addedResult = new Form(totalPounds, totalPence, totalPence);
+        Form convertedResult = addedResult.officialAmount();
+
+        model.addAttribute("convertedResult", convertedResult);
+
         return "allFormsTest";
     }
 

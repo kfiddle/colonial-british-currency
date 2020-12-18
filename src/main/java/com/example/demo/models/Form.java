@@ -48,6 +48,21 @@ public class Form {
         this.pence = officialPence;
     }
 
+    public Form(int pounds, int shillings, int pence) {
+        int totalPence = (pounds * 240) + (shillings * 12) + pence;
+
+        int officialPounds = totalPence / 240;
+        int remainingPence = totalPence % 240;
+        int officialShillings = remainingPence / 12;
+        int officialPence = remainingPence % 12;
+
+        this.pounds = officialPounds;
+        this.shillings = officialShillings;
+        this.pence = officialPence;
+    }
+
+
+
     public Form officialAmount() {
         int totalPence = this.amountInPence();
         int officialPounds = totalPence / 240;

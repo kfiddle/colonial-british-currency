@@ -36,6 +36,31 @@ function addAField() {
     forms.appendChild(formDiv);
 }
 
+class Form {
+    constructor(pounds, shillings, pence) {
+        this.pounds = pounds;
+        this.shillings = shillings;
+        this.pence = pence;
+    }
+     amountInPence() {
+     return (pounds * 240) + (shillings * 20) + pence;
+
+    }
+    convertAmount() {
+        let totalInPence = this.amountInPence();
+
+        let poundsOfficial = ~~(totalInPence / 240);
+        let remainingPence = totalInPence % 240;
+        let shillingsOfficial = ~~(remainingPence / 12);
+        let penceOfficial = remainingPence % 12;
+
+        this.pounds = poundsOfficial;
+        this.shillings = shillingsOfficial;
+        this.pence = penceOfficial;
+    }
+
+
+}
 
 function convertBackAndDisplay(totalInPence) {
     let poundsOut = ~~(totalInPence / 240);
@@ -67,62 +92,51 @@ function addTheFields() {
 
     for (let i = 0; i < poundFields.length; i++) {
 
-        if (typeof poundFields[i].value !== "undefined") {
+        if (poundFields[i].value !== "") {
             totalPounds += parseInt(poundFields[i].value);
         }
-        if (typeof shillingsFields[i].value !== "undefined") {
+        if (shillingsFields[i].value !== "") {
             totalShillings += parseInt(shillingsFields[i].value);
         }
-        if (typeof penceFields[i].value !== "undefined") {
+        if (penceFields[i].value !== "") {
             totalPence += parseInt(penceFields[i].value);
         }
     }
+    console.log(totalPounds);
+    console.log(totalShillings);
+    console.log(totalPence);
+    console.log((totalPounds * 240) + (totalShillings * 12) + totalPence);
     convertBackAndDisplay((totalPounds * 240) + (totalShillings * 12) + totalPence);
 }
 
 function subtractTheFields() {
-    let minusPounds = parseInt(poundFields[0].value);
-    let minusShillings = parseInt(shillingsFields[0].value);
-    let minusPence = parseInt(penceFields[0].value);
-
-    if (typeof poundFields[0].value === "undefined") {
-        minusPounds = 0;
-    }
-    if (typeof shillingsFields[0].value === "undefined") {
-        minusShillings = 0;
-    }
-    if (typeof penceFields[0].value === "undefined") {
-        minusPence = 0;
-    }
-
-    for (let i = 1; i < poundFields.length; i++) {
-        if (typeof poundFields[i].value === "undefined") {
-            poundFields[i] = 0;
-        } else {
-            poundFields[i] = poundFields[i].value;
+    for (let i = 0; i < poundFields.length; i ++){
+        if (poundFields[i].value === ""){
+            poundFields[i].value = 0;
         }
-        minusPounds -= poundFields[i];
-
-        if (typeof shillingsFields[0].value === "undefined") {
-            shillingsFields[i] = 0;
-        } else {
-            shillingsFields[i] = shillingsFields[i].value;
+        if (shillingsFields[i].value === ""){
+            shillingsFields[i].value = 0;
         }
-        minusShillings -= shillingsFields[i];
-
-        if (typeof penceFields[0].value === "undefined") {
-            penceFields[i] = 0;
-        } else {
-            penceFields[i] = penceFields[i].value;
+        if (penceFields[i].value === ""){
+            penceFields[i].value = 0;
         }
-        minusPence -= penceFields[i];
-        console.log(minusPounds);
-        console.log(minusShillings);
-        console.log(minusPence);
-        convertBackAndDisplay((minusPounds * 240) + (minusShillings * 12) + (minusPence));
+    }
+
+    let firstForm = new Form(parseInt(poundFields[i].value), parseInt(shillingsFields[i].value), parseInt(penceFields[i].value));
+
+    let totalPence = 0;
+    for (let i = 0; i < poundFields.length; i++){
+
+
+
 
     }
+
+
+
 }
+
+
 
 
 
