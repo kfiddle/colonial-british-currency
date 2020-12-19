@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>our forms here</title>
+</head>
+<body>
+
+<p th:text="${size}"></p>
+<ul th:each="form : ${forms}">
+    <li th:text="${form.pounds}"></li>
+    <li th:text="${form.shillings}"></li>
+    <li th:text="${form.pence}"></li>
+</ul>
+
+<p>and now, the added result...</p>
+<ul>
+    <li th:text="${convertedResult.pounds}"></li>
+    <li th:text="${convertedResult.shillings}"></li>
+    <li th:text="${convertedResult.pence}"></li>
+</ul>
+
+
+
+</body>
+</html>
