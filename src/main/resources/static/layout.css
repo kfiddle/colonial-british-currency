@@ -85,9 +85,12 @@ button {
     position: absolute;
     left: 25%;
     top: 60%;
-
-
 }
 
+#numberWindow {
+    margin-top: 10%;
+    margin-left: 25%;
+
+}
 
 

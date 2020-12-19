@@ -2,17 +2,46 @@ const forms = document.getElementById('forms');
 const addFieldButton = document.getElementById('addField');
 const plus = document.getElementById('plus');
 const minus = document.getElementById('minus');
+const times = document.getElementById('times');
+const divide = document.getElementById('divide');
+const calculate = document.getElementById('calculate');
+const numberWindow = document.getElementById('numberWindow');
+const numberInput = document.createElement('input');
+let operation;
+
 const answer = document.getElementById('answer');
 
 const poundFields = [];
 const shillingsFields = [];
 const penceFields = [];
 
-addFieldButton.addEventListener('click', addAField);
-plus.addEventListener('click', addTheFields);
-minus.addEventListener('click', subtractTheFields);
-
 addAField();
+addFieldButton.addEventListener('click', addAField);
+
+plus.addEventListener('click', function () {
+    addOrSubtractTheFields("add");
+});
+
+minus.addEventListener('click', function () {
+    addOrSubtractTheFields("subtract");
+});
+
+times.addEventListener('click', function() {
+    operation = "multiplier";
+    openNumberWindow(operation);
+});
+
+divide.addEventListener('click', function() {
+    operation = 'divisor';
+    openNumberWindow(operation);
+});
+
+
+calculate.addEventListener('click', function() {
+    multiplyOrDivide(operation);
+});
+;
+
 
 function addAField() {
     let formDiv = document.createElement('div');
@@ -42,13 +71,13 @@ class Form {
         this.shillings = shillings;
         this.pence = pence;
     }
-     amountInPence() {
-     return (pounds * 240) + (shillings * 20) + pence;
 
+    amountInPence() {
+        return (this.pounds * 240) + (this.shillings * 12) + this.pence;
     }
+
     convertAmount() {
         let totalInPence = this.amountInPence();
-
         let poundsOfficial = ~~(totalInPence / 240);
         let remainingPence = totalInPence % 240;
         let shillingsOfficial = ~~(remainingPence / 12);
@@ -59,81 +88,117 @@ class Form {
         this.pence = penceOfficial;
     }
 
+    displayForm() {
+        this.convertAmount();
 
+        let resultPounds = document.createElement('li');
+        let resultShillings = document.createElement('li');
+        let resultPence = document.createElement('li');
+        let totalPence = document.createElement('li');
+
+        resultPounds.innerText = this.pounds;
+        resultShillings.innerText = this.shillings;
+        resultPence.innerText = this.pence;
+        totalPence.innerText = this.amountInPence();
+
+        answer.appendChild(resultPounds);
+        answer.appendChild(resultShillings);
+        answer.appendChild(resultPence);
+        answer.appendChild(totalPence);
+    }
 }
 
-function convertBackAndDisplay(totalInPence) {
-    let poundsOut = ~~(totalInPence / 240);
+function createFormFromPence(totalInPence) {
+    let poundsOfficial = ~~(totalInPence / 240);
     let remainingPence = totalInPence % 240;
-    let shillingsOut = ~~(remainingPence / 12);
-    let penceOut = remainingPence % 12;
+    let shillingsOfficial = ~~(remainingPence / 12);
+    let penceOfficial = remainingPence % 12;
 
-    let totalPence = document.createElement('li');
-    let displayPounds = document.createElement('li');
-    let displayShillings = document.createElement('li');
-    let displayPence = document.createElement('li');
-
-    totalPence.innerHTML = "total in pence : " + totalInPence;
-
-    displayPounds.innerText = "pounds : " + poundsOut;
-    displayShillings.innerText = "shillings : " + shillingsOut;
-    displayPence.innerText = "pence : " + penceOut;
-
-    answer.appendChild(displayPounds);
-    answer.appendChild(displayShillings);
-    answer.appendChild(displayPence);
+    return new Form(poundsOfficial, shillingsOfficial, penceOfficial);
 }
 
 
-function addTheFields() {
+function changeToNumbers(list) {
+    let convertedList = [];
+    for (let i = 0; i < list.length; i++) {
+        if (list[i].value === "") {
+            convertedList[i] = 0;
+        } else {
+            convertedList[i] = parseInt(list[i].value);
+        }
+    }
+    return convertedList;
+}
+
+function addOrSubtractTheFields(j) {
+    let convertedPounds = changeToNumbers(poundFields);
+    let convertedShillings = changeToNumbers(shillingsFields);
+    let convertedPence = changeToNumbers(penceFields);
+
     let totalPounds = 0;
     let totalShillings = 0;
     let totalPence = 0;
 
-    for (let i = 0; i < poundFields.length; i++) {
-
-        if (poundFields[i].value !== "") {
-            totalPounds += parseInt(poundFields[i].value);
-        }
-        if (shillingsFields[i].value !== "") {
-            totalShillings += parseInt(shillingsFields[i].value);
-        }
-        if (penceFields[i].value !== "") {
-            totalPence += parseInt(penceFields[i].value);
+    if (j === "add") {
+        for (let i = 0; i < convertedPounds.length; i++) {
+            totalPounds += convertedPounds[i];
+            totalShillings += convertedShillings[i];
+            totalPence += convertedPence[i];
         }
     }
-    console.log(totalPounds);
-    console.log(totalShillings);
-    console.log(totalPence);
-    console.log((totalPounds * 240) + (totalShillings * 12) + totalPence);
-    convertBackAndDisplay((totalPounds * 240) + (totalShillings * 12) + totalPence);
+
+    if (j === "subtract") {
+
+        totalPounds = convertedPounds[0];
+        totalShillings = convertedShillings[0];
+        totalPence = convertedPence[0];
+
+        for (let i = 1; i < convertedPounds.length; i++) {
+            totalPounds -= convertedPounds[i];
+            totalShillings -= convertedShillings[i];
+            totalPence -= convertedPence[i];
+        }
+    }
+
+    let totalsForm = new Form(totalPounds, totalShillings, totalPence);
+    totalsForm.displayForm();
 }
 
-function subtractTheFields() {
-    for (let i = 0; i < poundFields.length; i ++){
-        if (poundFields[i].value === ""){
-            poundFields[i].value = 0;
-        }
-        if (shillingsFields[i].value === ""){
-            shillingsFields[i].value = 0;
-        }
-        if (penceFields[i].value === ""){
-            penceFields[i].value = 0;
-        }
+function openNumberWindow(operandType) {
+
+    numberInput.setAttribute('type', 'text');
+    numberInput.setAttribute('placeholder', operandType);
+    numberWindow.appendChild(numberInput);
+}
+
+
+function multiplyOrDivide(operationType) {
+    let answer;
+    let multiplierOrDivisor = parseFloat(numberInput.value);
+
+    if (poundFields[0].value === ""){
+        pounds[0].value = 0;
+    }
+    if (shillingsFields[0].value === ""){
+        shillingsFields[0].value = 0;
+    }
+    if (penceFields[0].value === ""){
+        penceFields[0].value = 0;
     }
 
-    let firstForm = new Form(parseInt(poundFields[i].value), parseInt(shillingsFields[i].value), parseInt(penceFields[i].value));
+    let convertedPounds = parseInt(poundFields[0].value);
+    let convertedShillings = parseInt(shillingsFields[0].value);
+    let convertedPence = parseInt(penceFields[0].value);
 
-    let totalPence = 0;
-    for (let i = 0; i < poundFields.length; i++){
+    let amount = new Form(convertedPounds, convertedShillings, convertedPence);
+    let totalPence = amount.amountInPence();
 
-
-
-
+    if (operationType === "multiplier") {
+         answer = createFormFromPence(totalPence * multiplierOrDivisor);
+    } else {
+        answer = createFormFromPence(totalPence / multiplierOrDivisor);
     }
-
-
-
+    answer.displayForm();
 }
 
 
