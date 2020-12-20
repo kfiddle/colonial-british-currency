@@ -36,7 +36,6 @@ divide.addEventListener('click', function() {
     openNumberWindow(operation);
 });
 
-
 calculate.addEventListener('click', function() {
     multiplyOrDivide(operation);
 });
