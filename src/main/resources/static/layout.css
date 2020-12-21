@@ -1,13 +1,38 @@
-* {
-    font-weight: bold;
+
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    color: #666;
+    font: 16px/1.618 sans-serif;
+    font-family: 'Nanum Gothic', sans-serif;
 }
 
 #body{
-    display: grid;
-    grid-template-columns: 1fr 2fr;
+    /*display: grid;*/
+    /*grid-template-columns: 1fr 2fr;*/
     background-image: url("/donovan-reeves-IZ-8E27kGCI-unsplash.jpg");
     background-position: center;
     background-repeat: no-repeat;
+}
+
+.container{
+    background-color: #fff;
+    margin: 2rem auto;
+    max-width: 60rem;
+    width: 90%;
+    padding-top: 5rem;
+    height: 90vh;
+}
+
+#leftFields{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
 }
 
 h1 {
