@@ -1,5 +1,6 @@
 const forms = document.getElementById('forms');
 const addFieldButton = document.getElementById('addField');
+const drapesPull = document.getElementById('drapes');
 const plus = document.getElementById('plus');
 const minus = document.getElementById('minus');
 const times = document.getElementById('times');
@@ -7,9 +8,13 @@ const divide = document.getElementById('divide');
 const calculate = document.getElementById('calculate');
 const numberWindow = document.getElementById('numberWindow');
 const numberInput = document.createElement('input');
-let operation;
-
 const answer = document.getElementById('answer');
+
+let operation;
+let mousePressed;
+let mouseX;
+let mouseY;
+let deltaY;
 
 const poundFields = [];
 const shillingsFields = [];
@@ -17,6 +22,26 @@ const penceFields = [];
 
 addAField();
 addFieldButton.addEventListener('click', addAField);
+
+drapesPull.addEventListener('mousedown', function (x) {
+    mousePressed = true;
+    mouseX = x.clientX;
+    mouseY = x.clientY;
+});
+
+drapesPull.addEventListener('mousemove', function (x) {
+    if (mousePressed === true) {
+        deltaY = x.clientY - mouseY;
+        console.log(deltaY);
+    }
+    if (deltaY > 5) {
+        addAField();
+    }
+    if (deltaY < -5) {
+        subtractAField();
+    }
+
+});
 
 plus.addEventListener('click', function () {
     addOrSubtractTheFields("add");
@@ -26,17 +51,17 @@ minus.addEventListener('click', function () {
     addOrSubtractTheFields("subtract");
 });
 
-times.addEventListener('click', function() {
+times.addEventListener('click', function () {
     operation = "multiplier";
     openNumberWindow(operation);
 });
 
-divide.addEventListener('click', function() {
+divide.addEventListener('click', function () {
     operation = 'divisor';
     openNumberWindow(operation);
 });
 
-calculate.addEventListener('click', function() {
+calculate.addEventListener('click', function () {
     multiplyOrDivide(operation);
 });
 ;
@@ -62,6 +87,10 @@ function addAField() {
     formDiv.appendChild(shillingsInput);
     formDiv.appendChild(penceInput);
     forms.appendChild(formDiv);
+}
+
+function subtractAField() {
+    forms.removeChild(forms.lastChild);
 }
 
 class Form {
@@ -175,13 +204,13 @@ function multiplyOrDivide(operationType) {
     let answer;
     let multiplierOrDivisor = parseFloat(numberInput.value);
 
-    if (poundFields[0].value === ""){
+    if (poundFields[0].value === "") {
         pounds[0].value = 0;
     }
-    if (shillingsFields[0].value === ""){
+    if (shillingsFields[0].value === "") {
         shillingsFields[0].value = 0;
     }
-    if (penceFields[0].value === ""){
+    if (penceFields[0].value === "") {
         penceFields[0].value = 0;
     }
 
@@ -193,13 +222,30 @@ function multiplyOrDivide(operationType) {
     let totalPence = amount.amountInPence();
 
     if (operationType === "multiplier") {
-         answer = createFormFromPence(totalPence * multiplierOrDivisor);
+        answer = createFormFromPence(totalPence * multiplierOrDivisor);
     } else {
         answer = createFormFromPence(totalPence / multiplierOrDivisor);
     }
     answer.displayForm();
 }
 
+
+// box.addEventListener('mousedown', function (x) {
+//     mousePressTrue = true;
+//     mouseX = x.clientX;
+//     mouseY = x.clientY;
+// });
+//
+// box.addEventListener('mousemove', function(x) {
+//     if (mousePressTrue === true) {
+//         deltaY = x.clientY - mouseY;
+//         box.style.height = 300 + deltaY + "px";
+//     }
+// });
+//
+// box.addEventListener('mouseup', function() {
+//     mousePressTrue = false;
+// })
 
 
 
