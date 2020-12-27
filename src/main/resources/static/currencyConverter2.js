@@ -1,6 +1,7 @@
 const forms = document.getElementById('forms');
 const addFieldButton = document.getElementById('addField');
 const drapesPull = document.getElementById('drapes');
+const body = document.getElementById('body');
 const plus = document.getElementById('plus');
 const minus = document.getElementById('minus');
 const times = document.getElementById('times');
@@ -12,7 +13,6 @@ const answer = document.getElementById('answer');
 
 let operation;
 let mousePressed;
-let mouseX;
 let mouseY;
 let deltaY;
 
@@ -25,20 +25,38 @@ addFieldButton.addEventListener('click', addAField);
 
 drapesPull.addEventListener('mousedown', function (x) {
     mousePressed = true;
-    mouseX = x.clientX;
+    drapesPull.style.backgroundColor = "red";
     mouseY = x.clientY;
 });
 
+window.addEventListener('mouseup', function () {
+    if (mousePressed === true) {
+        mousePressed = false;
+        drapesPull.style.backgroundColor = "darkgoldenrod";
+        console.log(mousePressed);
+    }
+});
+
+// body.addEventListener('mouseout', function () {
+//     if (mousePressed === true) {
+//         mousePressed = false;
+//         drapesPull.style.backgroundColor = "green";
+//     }
+// });
+
 drapesPull.addEventListener('mousemove', function (x) {
+
     if (mousePressed === true) {
         deltaY = x.clientY - mouseY;
-        console.log(deltaY);
-    }
-    if (deltaY > 5) {
-        addAField();
-    }
-    if (deltaY < -5) {
-        subtractAField();
+
+        if (deltaY > 5) {
+            addAField();
+            deltaY = deltaY;
+
+        } else if (deltaY < 0) {
+            console.log(mousePressed);
+            subtractAField();
+        }
     }
 
 });
@@ -46,7 +64,6 @@ drapesPull.addEventListener('mousemove', function (x) {
 plus.addEventListener('click', function () {
     addOrSubtractTheFields("add");
 });
-
 minus.addEventListener('click', function () {
     addOrSubtractTheFields("subtract");
 });
@@ -69,6 +86,7 @@ calculate.addEventListener('click', function () {
 
 function addAField() {
     let formDiv = document.createElement('div');
+    formDiv.setAttribute('padding-top', '5px');
     let poundsInput = document.createElement('input');
     poundFields.push(poundsInput);
     let shillingsInput = document.createElement('input');
