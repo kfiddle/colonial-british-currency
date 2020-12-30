@@ -37,22 +37,12 @@ window.addEventListener('mouseup', function () {
     }
 });
 
-// body.addEventListener('mouseout', function () {
-//     if (mousePressed === true) {
-//         mousePressed = false;
-//         drapesPull.style.backgroundColor = "green";
-//     }
-// });
-
 drapesPull.addEventListener('mousemove', function (x) {
-
     if (mousePressed === true) {
         deltaY = x.clientY - mouseY;
 
         if (deltaY > 5) {
             addAField();
-            deltaY = deltaY;
-
         } else if (deltaY < 0) {
             console.log(mousePressed);
             subtractAField();
@@ -86,12 +76,14 @@ calculate.addEventListener('click', function () {
 
 function addAField() {
     let formDiv = document.createElement('div');
-    formDiv.setAttribute('padding-top', '5px');
     let poundsInput = document.createElement('input');
+    poundsInput.setAttribute("class", "input");
     poundFields.push(poundsInput);
     let shillingsInput = document.createElement('input');
+    shillingsInput.setAttribute("class", "input");
     shillingsFields.push(shillingsInput);
     let penceInput = document.createElement('input');
+    penceInput.setAttribute("class", "input");
     penceFields.push(penceInput);
 
     poundsInput.setAttribute('placeholder', 'pounds');

@@ -95,7 +95,10 @@ button {
 #numberWindow {
     margin-top: 10%;
     margin-left: 25%;
+}
 
+.input {
+    margin: .5rem;
 }
 
 
