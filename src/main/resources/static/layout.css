@@ -1,31 +1,96 @@
-* {
-    font-weight: bold;
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-#body{
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    background-image: url("/donovan-reeves-IZ-8E27kGCI-unsplash.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
+html{
+    color: #666;
+    font: 16px/1.618 sans-serif;
+    font-family: 'Nanum Gothic', sans-serif;
+    background-color: cadetblue;
 }
 
-h1 {
-    text-shadow: 1px 1px darkmagenta;
+a{
+    padding: .25rem .5rem;
+    text-decoration: none;
+    color: #fff;
+}
+
+.container{
+    background-color: #fff;
+    margin: 2rem auto;
+    max-width: 60rem;
+    width: 90%;
+    padding-top: 5rem;
+}
+
+
+/** {*/
+/*    font-weight: bold;*/
+/*}*/
+
+/*#body{*/
+/*    !*display: grid;*!*/
+/*    !*grid-template-columns: 2fr 1fr 1fr;*!*/
+/*    !*background-image: url("/donovan-reeves-IZ-8E27kGCI-unsplash.jpg");*!*/
+/*    !*background-position: center;*!*/
+/*    !*background-repeat: no-repeat;*!*/
+/*    background-color: cadetblue;*/
+/*}*/
+
+.header{
+    /*display: flex;*/
+    /*align-items: center;*/
+    /*justify-content: space-between;*/
+
+    background-color: #666;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+h1{
+    /*margin-left: 3rem;*/
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+h2{
+    text-align: center;
+    text-transform: uppercase;
+
 }
 
 button {
     text-shadow: 1px 1px lightseagreen;
 }
 
-#form {
-    display:grid;
+/*#form {*/
+/*    display:grid;*/
+/*    grid-template-columns: 1fr 1fr 1fr;*/
+/*}*/
+
+/*#form div {*/
+/*    padding-right: 50px;*/
+/*}*/
+
+#leftFields{
+    align-items: center;
+}
+
+#addField {
+    margin-bottom: 20px;
+}
+
+#forms {
+    display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 }
 
-#form div {
-    padding-right: 50px;
-}
 
 #drapes{
     margin-left: 25%;
@@ -37,14 +102,9 @@ button {
     grid-template-rows: auto;
 }
 
-#addField {
-    margin-bottom: 20px;
-}
 
-#forms {
-    display:grid;
-    grid-template-rows: auto;
-}
+
+
 
 #operators i{
     padding-left: 50px;
