@@ -32,8 +32,8 @@ a{
 }
 
 .header{
-    background-color: #3c2A4D;
-    color: #E0F0EA;
+    background-color: #000;
+    color: #ccc;
     font-size: 2.5rem;
     padding: 2rem;
     position: fixed;
@@ -45,7 +45,6 @@ a{
 }
 
 h1{
-    color: #E0F0EA;
     font-size: 2.5rem;
     font-weight: 900;
     text-align: center;
@@ -53,7 +52,7 @@ h1{
 }
 
 .accordion {
-    background-color: #95ADBE;
+    background-color: #000;
     border: none;
     cursor: pointer;
     outline: none;
@@ -64,19 +63,20 @@ h1{
 }
 
 .accordionLabel{
-    color: #3c2A4D;
+    color: #ccc;
     font-size: 2.5rem;
     font-weight: 400;
     text-transform: uppercase;
 }
 
 .active, .accordion:hover {
-    background-color: #E0F0EA;
+    /*background-color: #ccc;*/
+    /*color: #000;*/
 }
 
 .panel {
-    background-color: #E0F0EA;
-    color: #3c2A4D;
+    background-color: #ccc;
+    color: #000;
     display: none;
     margin-bottom: 1rem;
     overflow: hidden;
@@ -84,8 +84,9 @@ h1{
 }
 
 .footer{
-    background-color: #3c2A4D;
+    background-color: #000;
     bottom: 0;
+    color: #ccc;
     padding: 2rem;
     position: fixed;
     width: 100%;
@@ -104,12 +105,13 @@ h1{
 }
 
 .footerNav_listItem a{
-  color: #E0F0EA;font-weight: 300;
-  padding: 2rem 4rem 2rem 4rem;
+    color: #ccc;
+    font-weight: 300;
+    padding: 2rem 4rem 2rem 4rem;
 }
 
 .footerNav_listItem a:hover{
-    background-color: #95ADBE;
-    color: #3c2A4D;
+    background-color: #ccc;
+    color: #000;
     font-weight: 900;
 }
