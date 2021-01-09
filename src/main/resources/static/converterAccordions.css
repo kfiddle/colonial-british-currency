@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    font: 16px/1.618 sans-serif;
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+.bgImage{
+    position: fixed;
+    z-index: -1;
+    min-width: 100vw;
+    min-height: 100vh;
+    background-image: url("backgroundImage.jpg");
+    background-size: cover;
+}
+
+a{
+    text-decoration: none;
+}
+
+.container{
+    height: 100vh;
+    margin: 2rem auto;
+    width: 75vw;
+    padding-top: 10rem;
+}
+
+.header{
+    background-color: #3c2A4D;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 2rem;
+}
+
+h1{
+    color: #E0F0EA;
+    font-size: 2.5rem;
+    font-weight: 500;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/* Style the buttons that are used to open and close the accordion panel */
+.accordion {
+    background-color: #95ADBE;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    padding: 1rem;
+    width: 100%;
+    margin-bottom: 1rem;
+    transition: 0.4s;
+}
+
+.accordionLabel{
+    color: #3c2A4D;
+    font-size: 2.5rem;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.active, .accordion:hover {
+    background-color: #E0F0EA;
+}
+
+.panel {
+    background-color: #E0F0EA;
+    color: #3c2A4D;
+    display: none;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    padding: 2rem;
+}
+
+.footer{
+    background-color: #3c2A4D;
+    bottom: 0;
+    padding: 2rem;
+    position: fixed;
+    width: 100%;
+}
+
+.footerNav_list{
+    display: flex;
+    justify-content: space-between;
+}
+
+.footerNav_listItem{
+    color: #E0F0EA;
+    list-style-type: none;
+    margin: 1rem;
+    text-transform: uppercase;
+
+}
+
+.footerNav_listItem a{
+  color: #E0F0EA;
+}
+
+.footerNav_listItem:hover{
+    background-color: #95ADBE;
+}

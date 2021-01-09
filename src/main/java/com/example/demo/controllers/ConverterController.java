@@ -1,7 +1,6 @@
 package com.example.demo.controllers;
 
 import com.example.demo.models.Form;
-import com.example.demo.models.PageOfForms;
 import com.example.demo.repositories.FormRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 @Controller
 public class ConverterController {
@@ -27,6 +25,11 @@ public class ConverterController {
     @RequestMapping("/currency-converter2")
     public String displayAnotherCurrencyConverterPage() {
         return "currencyConverter2";
+    }
+
+    @RequestMapping("/converter-accordions")
+    public String displayConverterAccordionsPage() {
+        return "converterAccordions";
     }
 
     @RequestMapping("/test-form")
