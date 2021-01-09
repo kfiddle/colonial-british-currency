@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic');
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;900&family=Lato:wght@300&display=swap');
 
 *{
     box-sizing: border-box;
@@ -7,8 +7,8 @@
 }
 
 html{
-    font: 16px/1.618 sans-serif;
-    font-family: 'Nanum Gothic', sans-serif;
+    font: 16px/1.618 serif;
+    font-family: 'Bodoni Moda', serif;
 }
 
 .bgImage{
@@ -33,10 +33,11 @@ a{
 
 .header{
     background-color: #3c2A4D;
+    font-weight: 900;
+    padding: 2rem;
     position: fixed;
     top: 0;
     width: 100%;
-    padding: 2rem;
 }
 
 h1{
@@ -47,7 +48,6 @@ h1{
     text-transform: uppercase;
 }
 
-/* Style the buttons that are used to open and close the accordion panel */
 .accordion {
     background-color: #95ADBE;
     border: none;
@@ -62,7 +62,7 @@ h1{
 .accordionLabel{
     color: #3c2A4D;
     font-size: 2.5rem;
-    font-weight: 500;
+    font-weight: 900;
     text-transform: uppercase;
 }
 
@@ -93,7 +93,6 @@ h1{
 }
 
 .footerNav_listItem{
-    /*color: #E0F0EA;*/
     list-style-type: none;
     padding: 1rem;
     text-transform: uppercase;
@@ -102,6 +101,7 @@ h1{
 
 .footerNav_listItem a{
   color: #E0F0EA;
+    font-weight: 400;
   padding: 2rem 4rem 2rem 4rem;
 }
 
