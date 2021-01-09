@@ -93,17 +93,20 @@ h1{
 }
 
 .footerNav_listItem{
-    color: #E0F0EA;
+    /*color: #E0F0EA;*/
     list-style-type: none;
-    margin: 1rem;
+    padding: 1rem;
     text-transform: uppercase;
 
 }
 
 .footerNav_listItem a{
   color: #E0F0EA;
+  padding: 2rem 4rem 2rem 4rem;
 }
 
-.footerNav_listItem:hover{
+.footerNav_listItem a:hover{
     background-color: #95ADBE;
+    color: #3c2A4D;
+    font-weight: 900;
 }
