@@ -69,14 +69,14 @@ button {
     text-shadow: 1px 1px lightseagreen;
 }
 
-/*#form {*/
-/*    display:grid;*/
-/*    grid-template-columns: 1fr 1fr 1fr;*/
-/*}*/
+#form {
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
 
-/*#form div {*/
-/*    padding-right: 50px;*/
-/*}*/
+#form div {
+    padding-right: 50px;
+}
 
 #leftFields{
     align-items: center;
