@@ -1,4 +1,4 @@
-const forms = document.getElementById('forms');
+const forms = document.getElementsByClassName('forms');
 const addFieldButton = document.getElementById('addField');
 const drapesPull = document.getElementById('drapes');
 const body = document.getElementById('body');
@@ -76,6 +76,7 @@ calculate.addEventListener('click', function () {
 
 function addAField() {
     let formDiv = document.createElement('div');
+    formDiv.setAttribute("class", "currencyTypes")
     let poundsInput = document.createElement('input');
     poundsInput.setAttribute("class", "input");
     poundFields.push(poundsInput);
