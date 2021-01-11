@@ -1,4 +1,4 @@
-const forms = document.getElementById('forms');
+const forms = Array.from(document.querySelectorAll(".forms"));
 const addFieldButton = document.getElementById('addField');
 const drapesPull = document.getElementById('drapes');
 const body = document.getElementById('body');
