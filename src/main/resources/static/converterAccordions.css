@@ -132,26 +132,61 @@ input {
 
 
 .solution{
-    background-color: #fdfaf6;
     border: 3px solid #000;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 1rem.25rem;
+}
+
+.answer{
+    /*
+    background-color: #fdfaf6;
+    */
+    border-right: .125rem solid;
     color: #000;
     font-size: 1rem;
     font-weight: 900;
-    margin: 1rem.25rem;
-    padding: .75rem 1rem;
-    text-align: left;
+    padding: .75rem;
+    text-align: center;
     text-transform: uppercase;
     vertical-align: middle;
 }
 
-.answer{
-    padding-inline-start: 0;
-    margin-block-start: 0;
-    margin-block-end: 0;
+.answerLast{
+    /*
+    background-color: #fdfaf6;
+    */
+    color: #000;
+    font-size: 1rem;
+    font-weight: 900;
+    padding: .75rem;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: middle;
 }
 
 .multiplier{
-/*    background-color: #000000;*/
+    border: 3px solid #000;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    font-weight: 900;
+    margin: 1rem.25rem;
+    text-align: center;
+    /*text-transform: uppercase;
+    vertical-align: middle;*/
+}
+
+.operator{
+    background-color: #000;
+    color: #fdfaf6;
+    font-size: 2rem;
+}
+
+.addNumber{
+    cursor: text;
+    background-color: #fdfaf6;
+    font-size: 1rem;
+    padding: .75rem;
 }
 
 .footer{
