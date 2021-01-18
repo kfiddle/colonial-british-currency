@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
           integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="/converterAccordions.css">
+    <link rel="stylesheet" href="css/converterAccordions.css">
     <title>Colonial British Currency Converter</title>
 </head>
 <body>
@@ -18,7 +18,12 @@
 </header>
 
 
+
+
 <div class="container">
+
+
+
 
     <button class="accordion">
         <span class="accordionLabel">add</span>
@@ -31,22 +36,24 @@
             </div>
 
         <div class="lineTwo">
-        <button class="function">Add More Currency</button>
+        <button class="function addCurrency">Add More Currency</button>
 
-        <button class="function">Calculate
-        <!--<div id="operators2">
-            <i id="plus" class="fa fa-plus"></i>
-        </div>-->
+        <button class="function calculate">Calculate
         </button>
 
 
         <button class="solution">
-            <div class="answer">Total Pounds</div>
-            <div class="answer">Total Shillings</div>
-            <div class="answerLast">Total Pence</div>
+            <div class="answer pounds"></div>
+            <div class="answer shillings"></div>
+            <div class="answerLast pence"></div>
         </button>
         </div>
     </div>
+
+
+
+
+
 
     <button class="accordion">
        <span class="accordionLabel">subtract</span>
@@ -58,9 +65,9 @@
         </div>
 
         <div class="lineTwo">
-            <button class="function">Add More Currency</button>
+            <button class="function addCurrency">Add More Currency</button>
 
-            <button class="function">Calculate
+            <button class="function calculate">Calculate
                 <!--<div id="operators2">
                     <i id="plus" class="fa fa-plus"></i>
                 </div>-->
@@ -68,12 +75,15 @@
 
 
             <button class="solution">
-                <div class="answer">Total Pounds</div>
-                <div class="answer">Total Shillings</div>
-                <div class="answerLast">Total Pence</div>
+                <div class="answer pounds"></div>
+                <div class="answer shillings"></div>
+                <div class="answerLast pence"></div>
             </button>
         </div>
     </div>
+
+
+
 
     <button class="accordion">
         <span class="accordionLabel">multiply</span>
@@ -90,18 +100,23 @@
                 <div class="operator">
                 <i id="times" class="fa fa-times"></i>
                 </div>
-                <div class="addNumber">2</div>
+                <div class="addNumber">
+                    <input type="number">
+                </div>
             </button>
 
-            <button class="function">Calculate</button>
+            <button class="function calculate">Calculate</button>
 
             <button class="solution">
-                <div class="answer">Total Pounds</div>
-                <div class="answer">Total Shillings</div>
-                <div class="answerLast">Total Pence</div>
+                <div class="answer"></div>
+                <div class="answer"></div>
+                <div class="answerLast"></div>
             </button>
         </div>
     </div>
+
+
+
 
     <button class="accordion">
         <span class="accordionLabel">divide</span>
@@ -118,7 +133,7 @@
                 <ul class="multiplier">Divide By: </ul>
             </button>
 
-            <button class="function">Calculate
+            <button class="function calculate">Calculate
                 <!--<div id="operators2">
                     <i id="plus" class="fa fa-plus"></i>
                 </div>-->
@@ -146,8 +161,8 @@
     </nav>
 </footer>
 
-<script src="accordions.js"></script>
-<script src="/currencyConverter2.js"></script>
+<script src="js/accordions.js"></script>
+<script src="js/currencyConverter3.js"></script>
 
 </body>
 </html>
