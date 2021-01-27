@@ -36,6 +36,8 @@ for (let i = 0; i < forms.length; i++) {
     }
 }
 
+
+
 function addOneField(whichAccordion) {
     let formDiv = document.createElement('div');
     formDiv.setAttribute("class", "currencyTypes")
