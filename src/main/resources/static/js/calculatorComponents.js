@@ -1,5 +1,19 @@
 const converterContainer = document.getElementById('converterContainer');
 
+
+
+const loadPage = () => {
+    let background = document.getElementById('backgroundImage');
+    setTimeout(()=> {
+        background.style.filter = 'hue-rotate(200deg)';
+        converterContainer.style.transform = 'translateY(-140vh)';
+    }, 700);
+
+
+}
+
+
+
 let accordionButtons = [];
 
 const operands = {
@@ -168,8 +182,9 @@ function createOuterOperandButtons(operand) {
 
     accordionButtons.push(outerButton);
     converterContainer.appendChild(outerButton);
-
 }
+
+loadPage();
 
 
 

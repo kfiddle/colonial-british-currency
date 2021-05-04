@@ -4,16 +4,31 @@
     box-sizing: border-box;
 }
 
+body {
+    /*background-image: url("../images/patti-black-Tbu6CkM-Sgg-unsplash.jpg");*/
+    /*background-image: url("../images/christopher-lotito-kJoZ9h1ync0-unsplash.jpg");*/
+
+}
+
+
+#backgroundImage {
+    width: 100vw;
+    transform: translateY(-40vh);
+    transition: 3s;
+}
+
 #converterDiv {
     align-content: center;
     height: 100vh;
     width: 100vw;
-    transform: translateY(100vh);
-    background-image: url("../images/christopher-lotito-kJoZ9h1ync0-unsplash.jpg");
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    transition: 2s cubic-bezier(.4,0.0,.2,1.0);
+    /*transform: translateY(100vh);*/
+    /*background-image: url("../images/patti-black-YQfwKQ4cSik-unsplash.jpg");*/
+    transition: 3s cubic-bezier(.4,0.0,.2,1.0);
+}
+
+#converterContainer {
+    transition: 3s cubic-bezier(.4,0.0,.2,1.0);
+
 }
 
 
