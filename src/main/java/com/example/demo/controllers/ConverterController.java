@@ -17,9 +17,9 @@ public class ConverterController {
     private FormRepository formRepo;
 
 
-    @RequestMapping("/currency-converter")
-    public String displayCurrencyConverterPage() {
-        return "british-currency";
+    @RequestMapping("/currency-calculator")
+    public String displayOneMoreCurrencyConverterPage() {
+        return "currencyCalculator";
     }
 
     @RequestMapping("/currency-converter2")

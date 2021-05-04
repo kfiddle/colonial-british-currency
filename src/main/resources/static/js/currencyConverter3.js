@@ -204,11 +204,6 @@ const divide = () => {
 
 }
 
-
-
-
-
-
 for (let i = 0; i < calculateButtons.length; i++) {
     calculateButtons[i].addEventListener('click', function () {
         decideOperation(i);
