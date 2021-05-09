@@ -3,16 +3,14 @@ const converterContainer = document.getElementById('converterContainer');
 
 
 const loadPage = () => {
-    let background = document.getElementById('backgroundImage');
+    let background = document.getElementById('backgroundDiv');
     setTimeout(()=> {
-        background.style.filter = 'hue-rotate(200deg)';
-        converterContainer.style.transform = 'translateY(-140vh)';
+        background.style.filter = 'hue-rotate(200deg) opacity(.7)';
+
+        converterContainer.style.transform = 'translateY(-83vh)';
     }, 700);
 
-
 }
-
-
 
 let accordionButtons = [];
 

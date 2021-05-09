@@ -17,7 +17,7 @@ public class ConverterController {
     private FormRepository formRepo;
 
 
-    @RequestMapping("/currency-calculator")
+    @RequestMapping("/")
     public String displayOneMoreCurrencyConverterPage() {
         return "currencyCalculator";
     }
